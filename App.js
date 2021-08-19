@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from './components/Home'
 import Tickets from './components/Tickects/Tickects';
 import Contact from './components/Contact/Contact';
+import TickectPurchase from './components/Tickects/TickectPurchase'
 
 const Stack = createStackNavigator();
 
@@ -42,6 +43,15 @@ export default function App() {
               headerTitle:'Contact Us'
             }}
           />
+          <Stack.Screen
+            name='Purchase'
+            component={TickectPurchase}
+            options={{
+              headerTitleAlign: 'center',
+              // headerTitleStyle: {fontFamily: 'Ubuntu-Regular'},
+              headerTitle:'Purchase Tickects'
+            }}
+            />
         </Stack.Navigator>
       </NavigationContainer>      
     </>

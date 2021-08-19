@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TextInput, Alert, TouchableOpacity } from 'react-native';
 import globoTickets from './TicketsDB';
 
-const TicketPurchase = ({route, navigation}) => {
+const TickectPurchase = ({route, navigation}) => {
     const [ticketQuantity, setTicketQuantity] = useState('1');
     const { tickId } = route.params;
     const selectedEvent = globoTickets.find(tickets => tickets.eventId === tickId);
@@ -56,12 +56,13 @@ const styles = StyleSheet.create({
         paddingTop: 10
     },
     purchaserow: {
-        flexDirection: 'row'
+        flexDirection: 'row',
     },
     button: {
         borderTopWidth: 1,
         borderBottomWidth: 1,
-        width: '60%'
+        width: '60%',
+
     },
     title: {
         // fontFamily: 'Ubuntu-Regular',
@@ -90,15 +91,16 @@ const styles = StyleSheet.create({
     buttontext: {
         // fontFamily: 'Ubuntu-Regular',
         textAlign: 'center',
-        padding: 5
+        padding: 5,
+        color: 'blue'
     },
     quantityinput: {
         borderWidth: 1,
         // fontFamily: 'Ubuntu-Regular',
         height: 38,
         width:40,
-        marginLeft: 25
+        marginLeft: 25,
     },
 });
 
-export default TicketPurchase;
+export default TickectPurchase;
