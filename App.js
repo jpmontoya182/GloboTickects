@@ -1,21 +1,49 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './components/Home'
+import Tickets from './components/Tickects/Tickects';
+import Contact from './components/Contact/Contact';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar barStyle="dark-content" hidden />
+      <NavigationContainer>
+        <Stack.Navigator 
+          initialRouteName='Home'
+          screenOptions={{headerMode:'screen'}}     
+        >
+          <Stack.Screen 
+            name='Home'
+            options={{
+              headerShown: false
+            }}
+          >
+            {(props) => <Home {...props} username='Sports Fan' />}
+          </Stack.Screen> 
+          <Stack.Screen 
+            name='Tickets'
+            component={Tickets}
+            options={{
+              headerTitleAlign: 'center',
+              // headerTitleStyle: {fontFamily: 'Ubuntu-Regular'}
+            }}
+          /> 
+          <Stack.Screen 
+            name='Contact'
+            component={Contact}
+            options={{            
+              headerTitleAlign: 'center',
+              // headerTitleStyle: {fontFamily: 'Ubuntu-Regular'},
+              headerTitle:'Contact Us'
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>      
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
