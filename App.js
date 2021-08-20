@@ -6,6 +6,7 @@ import Home from './components/Home'
 import Tickets from './components/Tickects/Tickects';
 import Contact from './components/Contact/Contact';
 import TickectPurchase from './components/Tickects/TickectPurchase'
+import News from './components/News/News';
 
 const Stack = createStackNavigator();
 
@@ -51,6 +52,15 @@ export default function App() {
               // headerTitleStyle: {fontFamily: 'Ubuntu-Regular'},
               headerTitle:'Purchase Tickects'
             }}
+            />
+            <Stack.Screen
+              name='News'
+              component={News}
+              options={{
+                headerTitleAlign: 'center',
+                // headerTitleStyle: {fontFamily: 'Ubuntu-Regular'},
+                headerTitle:'Latest News'
+              }}
             />
         </Stack.Navigator>
       </NavigationContainer>      
